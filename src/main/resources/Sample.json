@@ -1,0 +1,16 @@
+[ {
+  "title" : "Mathematik für Physiker I",
+  "weighting" : 6,
+  "grade" : 2.0,
+  "usedForCalc" : true
+}, {
+  "title" : "Grundlagen Physik I",
+  "weighting" : 6,
+  "grade" : 2.0,
+  "usedForCalc" : false
+}, {
+  "title" : "Grundlagen der Informatik",
+  "weighting" : 6,
+  "grade" : 1.0,
+  "usedForCalc" : true
+} ]

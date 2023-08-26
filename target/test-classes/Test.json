@@ -1,0 +1,16 @@
+[ {
+  "title" : "Mathe 1",
+  "weighting" : 1,
+  "grade" : 2.0,
+  "usedForCalc" : true
+}, {
+  "title" : "Physik 1",
+  "weighting" : 1,
+  "grade" : 2.0,
+  "usedForCalc" : true
+}, {
+  "title" : "Informatik 1",
+  "weighting" : 1,
+  "grade" : 1.0,
+  "usedForCalc" : true
+} ]

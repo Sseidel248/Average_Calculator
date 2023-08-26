@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sseidel.average_calculator.application.AppController">
+   <top>
+       <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="6.0" minWidth="6.0" prefWidth="6.0" />
+               <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="105.0" minWidth="105.0" prefWidth="105.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="6.0" minWidth="6.0" prefWidth="6.0" />
+               <ColumnConstraints hgrow="NEVER" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+               <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="686.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+           <Button fx:id="loadDataBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onLoadBtnAction" prefHeight="55.0" prefWidth="75.0" text="Load" GridPane.rowSpan="2" />
+           <Button fx:id="saveDataBtn" mnemonicParsing="false" onAction="#onSaveBtnAction" prefHeight="55.0" prefWidth="75.0" text="Save" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+           <Button fx:id="addEntryBtn" mnemonicParsing="false" onAction="#onAddRow" prefWidth="100.0" text="Add Entry" GridPane.columnIndex="3">
+              <GridPane.margin>
+                  <Insets left="3.0" />
+              </GridPane.margin>
+           </Button>
+           <Button fx:id="delEntryBtn" mnemonicParsing="false" onAction="#onDeleteRow" prefWidth="100.0" text="Delete Entry" GridPane.columnIndex="3" GridPane.rowIndex="1">
+              <GridPane.margin>
+                  <Insets left="3.0" />
+              </GridPane.margin>
+           </Button>
+           <Line endY="70.0" GridPane.columnIndex="2" GridPane.rowSpan="3" />
+           <Line endY="70.0" GridPane.columnIndex="4" GridPane.rowSpan="3" />
+           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Average" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+              <font>
+                  <Font name="System Bold" size="14.0" />
+              </font>
+              <GridPane.margin>
+                  <Insets left="3.0" />
+              </GridPane.margin>
+           </Text>
+           <Text fx:id="averageText" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+              <font>
+                  <Font name="Arial" size="12.0" />
+              </font>
+            <GridPane.margin>
+               <Insets left="3.0" top="3.0" />
+            </GridPane.margin>
+           </Text>
+           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="File" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ETCS" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+            <GridPane.margin>
+               <Insets left="3.0" />
+            </GridPane.margin>
+         </Text>
+         <Text fx:id="etcsText" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.columnIndex="6" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <GridPane.margin>
+               <Insets left="3.0" top="3.0" />
+            </GridPane.margin>
+         </Text>
+       </GridPane>
+   </top>
+   <center>
+      <TableView fx:id="dataTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idCol" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" text="ID" />
+          <TableColumn fx:id="titleCol" minWidth="600.0" onEditCommit="#onCommitTitle" prefWidth="600.0" text="Course" />
+            <TableColumn fx:id="gradeCol" maxWidth="70.0" minWidth="70.0" onEditCommit="#onCommitGrade" prefWidth="70.0" resizable="false" text="Grade" />
+            <TableColumn fx:id="wightingCol" maxWidth="85.0" minWidth="85.0" onEditCommit="#onCommitWighting" prefWidth="85.0" resizable="false" text="ECTS-Credits" />
+            <TableColumn fx:id="usedCol" maxWidth="130.0" minWidth="100.0" onEditCommit="#onCommitUsedForCalc" prefWidth="100.0" resizable="false" text="Used For Calc" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="3.0" left="3.0" right="3.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>
